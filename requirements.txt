@@ -1,1 +1,26 @@
-Django~=5.1.2
+Router 1:
+access-list 111 permit ip host 192.168.12.252 host 224.0.0.102
+
+---access-list 111 permit ip host 192.168.12.253 host 224.0.0.102
+
+access-list 111 deny ip any host 224.0.0.102
+
+access-list 111 permit ip any any
+
+ip access-group 111 in
+
+
+
+Router 2:
+access-list 111 permit ip host 192.168.12.253 host 224.0.0.102
+
+---access-list 111 permit ip host 192.168.12.252 host 224.0.0.102
+
+access-list 111 deny ip any host 224.0.0.102
+
+access-list 111 permit ip any any
+
+ip access-group 111 in
+
+
+no access-list 101

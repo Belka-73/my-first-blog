@@ -1,0 +1,163 @@
+/* Встановлюємо плавну прокрутку для всіх елементів HTML */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Основні стилі для тіла сторінки */
+body {
+    background-color: #dedede; /* Встановлюємо колір фону сторінки */
+    margin: 15px; /* Внутрішні відступи від країв в 15px */
+    font-family: Arial, sans-serif; 
+}
+
+
+h1 {
+    color: #0035f5;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 40px;
+    }
+
+
+h2 {
+    text-align: center; /
+}
+
+/* Зміст */
+h3 {
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+}
+
+
+ul{
+    font-family: Bahnschrift;
+    }
+    
+li{
+    font-family: Calibri;
+    display: inline-box;
+}
+
+a {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    text-decoration: none; 
+    color: black; 
+}
+
+.now {
+    font-family: Arial Black;
+    font-size: 16px;
+    }
+
+b {
+font-size: 18px;
+}
+
+/* Стилі для зображень */
+figure {
+    border-radius: 35px; /* Закруглюємо куті рамки */
+    overflow: hidden; /* Обрізаємо картинки, щоб вони відповіли заокругленню */
+    border: 5px solid #052fff; /* Колір контуру синій і товщина 2 пікселя */
+    background-color: #ffffff; /* Білий фон фігур */
+}
+
+img {
+    width: 100%; /* Розтягуємо зображення на всю ширину */
+    height: 86%; /* Розтягуємо зображення на 86% висоти */
+}
+
+/* Стилі для підпису */
+figcaption {
+    text-align: center; /* Вирівнюємо текст підпису по центру */
+    color: #000000; /* Колір тексту чорний */
+    font-size: 25px; /* Розмір шрифту 25px */
+    font-family: Arial Black;
+}
+
+.label {
+    text-align: center; /* Вирівнюємо текст по центру */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Встановлюємо шрифт */
+}
+
+@media only screen and (min-width: 0px) {
+    .grid { /* Встановлюємо одноколоночний розміт таблиці з 10px проміжком між рядками і колонками */
+        display: grid;
+        gap: 10px; /* 10 пікселів */
+    }
+
+    figure {
+        height: 400px; /* Висота */
+    }
+}
+
+/* Встановлюємо двоколоночний розміт мережі */
+@media only screen and (min-width: 772px){
+    
+     /* Встановлюємо двоколоночний розміт мережі */
+  .grid {
+    grid-template-columns: repeat(2, 1fr); 
+}
+    
+    img {
+        height: 82%; 
+    }
+    
+    figure {
+        border-radius: 50%; /* Встановлення радіусу щоб отримати круглі форми */
+        overflow: hidden; /* Обрізаємо картинку, щоб він відповідав заокругленню */ 
+    }
+
+    figure:not(:last-child) {
+        height: auto;
+        aspect-ratio: 1 / 1; /* Встановити співвідношення сторін 1:1 */
+    }
+
+    /* Останнє зображення */
+    /* займати обидві колонки */
+    /*.grid figure:last-child {
+        grid-column: span 2; 
+    }*/
+}
+
+@media only screen and (min-width: 992px) {
+    img {
+        height: 85%; /* Висота */
+    }
+
+    figure:not(:last-child) {
+        height: 400px; /* Висота */
+    }
+
+    figure {
+        border-radius: 0; /* Видаляємо закругленість кутів */
+        width: 90%;
+    }
+
+    .grid figure:nth-child(3n) {
+        aspect-ratio: auto;  /* Прибираємо співвідношення сторін 1:1 */
+        grid-column: span 2; /* Кожне третє зображення займає дві колонки */
+        width: 95%;
+        height: 450px;
+    }
+}
+
+/* Вимикаємо плавну прокрутку у випадку, якщо користувачі вимкнули анімацію */
+@media (prefers-reduced-motion) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Темна кольорова схема */
+@media (prefers-color-scheme: dark) {
+    figure {
+        background-color: #000000; /* Темний фон фігур */
+        border: 5px solid #000000; /* Колір рамки та товщина в 2 пикселя */
+    }
+
+    figcaption {
+        color: #ffd500; /* Колір тексту білий */
+    }
+}
